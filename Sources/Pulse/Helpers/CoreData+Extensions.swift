@@ -18,10 +18,11 @@ extension NSManagedObjectContext {
     }
 
     func first<T: NSManagedObject>(_ entity: T.Type, _ configure: (NSFetchRequest<T>) -> Void = { _ in }) throws -> T? {
-        try fetch(entity) {
+        let entities = try fetch(entity) {
             $0.fetchLimit = 1
             configure($0)
-        }.first
+        }
+        return entities.first
     }
 
     func count<T: NSManagedObject>(for entity: T.Type) throws -> Int {
