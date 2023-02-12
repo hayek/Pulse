@@ -19,6 +19,7 @@ extension NSManagedObjectContext {
     }
 
     func first<T: NSManagedObject>(_ entity: T.Type, _ configure: (NSFetchRequest<T>) -> Void = { _ in }) throws -> T? {
+        print("amir0")
         let entities = try fetch(entity) {
             $0.fetchLimit = 1
             configure($0)
