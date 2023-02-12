@@ -30,8 +30,14 @@ extension NSManagedObjectContext {
         dump(a)
         print("amir3")
         let b = a as? T
+        dump(b)
+        print("amir4")
         let c = (a as? AnyObject) as? T
-        return b ?? entities.first
+        dump(c)
+        print("amir5")
+        dump(entities.first)
+        print("amir6")
+        return entities.first
     }
 
     func count<T: NSManagedObject>(for entity: T.Type) throws -> Int {
