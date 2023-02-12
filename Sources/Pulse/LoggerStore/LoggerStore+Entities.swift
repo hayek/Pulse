@@ -25,6 +25,7 @@ public final class LoggerMessageEntity: NSManagedObject {
     public lazy var metadata = { KeyValueEncoding.decodeKeyValuePairs(rawMetadata) }()
 }
 
+@objc(NetworkTaskEntity)
 public final class NetworkTaskEntity: NSManagedObject {
     // Primary
     @NSManaged public var createdAt: Date
