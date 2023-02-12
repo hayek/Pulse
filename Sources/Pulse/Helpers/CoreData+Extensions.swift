@@ -24,7 +24,11 @@ extension NSManagedObjectContext {
             configure($0)
         }
         let a = (entities as NSArray).firstObject
+        print("amir1")
         print(T.self)
+        print("amir2")
+        dump(a)
+        print("amir3")
         let b = a as? T
         let c = (a as? AnyObject) as? T
         return b ?? entities.first
