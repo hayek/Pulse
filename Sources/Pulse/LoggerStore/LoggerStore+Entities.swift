@@ -4,11 +4,13 @@
 
 import CoreData
 
+@objc(LoggerSessionEntity)
 public final class LoggerSessionEntity: NSManagedObject {
     @NSManaged public var createdAt: Date
     @NSManaged public var sessionID: Int64
 }
 
+@objc(LoggerMessageEntity)
 public final class LoggerMessageEntity: NSManagedObject {
     @NSManaged public var createdAt: Date
     @NSManaged public var isPinned: Bool
@@ -139,6 +141,7 @@ public final class NetworkTaskEntity: NSManagedObject {
 }
 
 /// Indicates current download or upload progress.
+@objc(NetworkTaskProgressEntity)
 public final class NetworkTaskProgressEntity: NSManagedObject {
     /// Indicates current download or upload progress.
     @NSManaged public var completedUnitCount: Int64
@@ -146,6 +149,7 @@ public final class NetworkTaskProgressEntity: NSManagedObject {
     @NSManaged public var totalUnitCount: Int64
 }
 
+@objc(NetworkTransactionMetricsEntity)
 public final class NetworkTransactionMetricsEntity: NSManagedObject {
     @NSManaged public var index: Int16
     @NSManaged public var rawFetchType: Int16
@@ -222,6 +226,7 @@ public final class NetworkTransactionMetricsEntity: NSManagedObject {
     }
 }
 
+@objc(NetworkRequestEntity)
 public final class NetworkRequestEntity: NSManagedObject {
     // MARK: Details
 
@@ -250,6 +255,7 @@ public final class NetworkRequestEntity: NSManagedObject {
     public lazy var headers: [String: String] = { KeyValueEncoding.decodeKeyValuePairs(httpHeaders) }()
 }
 
+@objc(NetworkResponseEntity)
 public final class NetworkResponseEntity: NSManagedObject {
     @NSManaged public var statusCode: Int16
     @NSManaged public var httpHeaders: String
@@ -266,6 +272,7 @@ public final class NetworkResponseEntity: NSManagedObject {
 }
 
 /// Doesn't contain any data, just the key and some additional payload.
+@objc(LoggerBlobHandleEntity)
 public final class LoggerBlobHandleEntity: NSManagedObject {
     /// A blob hash (sha1, stored in a binary format).
     @NSManaged public var key: Data

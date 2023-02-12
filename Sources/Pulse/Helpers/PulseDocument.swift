@@ -61,6 +61,7 @@ final class PulseDocument {
     }()
 }
 
+@objc(PulseBlobEntity)
 final class PulseBlobEntity: NSManagedObject {
     @NSManaged var key: String
     @NSManaged var data: Data
