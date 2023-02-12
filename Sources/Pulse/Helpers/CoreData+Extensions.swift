@@ -7,6 +7,7 @@ import CoreData
 extension NSManagedObjectContext {
     func fetch<T: NSManagedObject>(_ entity: T.Type, _ configure: (NSFetchRequest<T>) -> Void = { _ in }) throws -> [T] {
         let request = NSFetchRequest<T>(entityName: String(describing: entity))
+        request.returnsObjectsAsFaults = false
         configure(request)
         return try fetch(request)
     }
