@@ -22,8 +22,11 @@ extension NSManagedObjectContext {
             $0.fetchLimit = 1
             configure($0)
         }
-        let a = ((entities as NSArray).firstObject as? T)
-        return a ?? entities.first
+        let a = (entities as NSArray).firstObject
+        print(T.self)
+        let b = a as? T
+        let c = (a as? AnyObject) as? T
+        return b ?? entities.first
     }
 
     func count<T: NSManagedObject>(for entity: T.Type) throws -> Int {
